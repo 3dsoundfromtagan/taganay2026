@@ -1,0 +1,326 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 2.0 (March 8, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+%t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+\usepackage[english, russian]{babel} % выбор языка
+
+\newcommand\rozhasize{0.20\textwidth}
+\newcommand\namesize{0.18\textwidth}
+\newcommand\fourpicsize{0.49\textwidth}
+\usepackage{makecell}
+\usepackage{tabularx}
+\renewcommand{\cellalign}{vh}
+\renewcommand{\theadalign}{vh}
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+\definecolor{darkred}{HTML}{8b0000}
+\definecolor{darkblue}{HTML}{00008B}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{rotating}
+\usepackage{wasysym}
+\usepackage{textgreek}
+\usepackage{textcomp}
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of default layout themes which change the colors and layouts of slides. Below is a list of all themes available, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with several font themes to easily change the fonts used in various parts of the presentation. Review the comments beside each one to decide if you would like to use it. Note that additional options can be specified for several of these font themes, consult the beamer documentation for more information.
+
+\usefonttheme{default} % Typeset using the default sans serif font
+%\usefonttheme{serif} % Typeset using the default serif font (make sure a sans font isn't being set as the default font if you use this option!)
+%\usefonttheme{structurebold} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in bold
+%\usefonttheme{structureitalicserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in italic serif
+%\usefonttheme{structuresmallcapsserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in small caps serif
+
+%------------------------------------------------
+
+%\usepackage{mathptmx} % Use the Times font for serif text
+\usepackage{palatino} % Use the Palatino font for serif text
+
+%\usepackage{helvet} % Use the Helvetica font for sans serif text
+\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+%\usepackage[default]{FiraSans} % Use the Fira Sans font for sans serif text
+%\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+
+% Inner themes change the styling of internal slide elements, for example: bullet points, blocks, bibliography entries, title pages, theorems, etc. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useinnertheme{default}
+\useinnertheme{circles}
+%\useinnertheme{rectangles}
+%\useinnertheme{rounded}
+%\useinnertheme{inmargin}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[1 к.с. Тескей-Ала-Тоо 2025]{Рассказ о горном спортивном походе 1~к.с. по Тескей-Ала-Тоо (Кырзызстан)} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+
+%\subtitle{<<Делаем выводы. Или ноги>>} % Presentation subtitle, remove this command if a subtitle isn't required
+
+\author[Остапив Лёша]{Остапив Лёша} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+\institute[ГС МФТИ]{Горная секция МФТИ} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+\date[\today]{\today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+	%----------------------------------------------------------------------------------------
+	%	TITLE SLIDE
+	%----------------------------------------------------------------------------------------
+	
+	\begin{frame}
+		\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+	\end{frame}
+	
+	%----------------------------------------------------------------------------------------
+	%	TABLE OF CONTENTS SLIDE
+	%----------------------------------------------------------------------------------------
+	
+	% The table of contents outputs the sections and subsections that appear in your presentation, specified with the standard \section and \subsection commands. You may either display all sections and subsections on one slide with \tableofcontents, or display each section at a time on subsequent slides with \tableofcontents[pausesections]. The latter is useful if you want to step through each section and mention what you will discuss.
+	
+	\begin{frame}
+		\frametitle{Оглавление} % Slide title, remove this command for no title
+		
+		\tableofcontents % Output the table of contents (all sections on one slide)
+		%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+	\end{frame}
+	
+	%----------------------------------------------------------------------------------------
+	%	PRESENTATION BODY SLIDES
+	%----------------------------------------------------------------------------------------
+	
+	\section{Общая информация} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+	
+	%------------------------------------------------
+	\subsection{Состав группы}
+
+\begin{frame}
+	\frametitle{Состав группы}
+	\begin{tabular}{lllll}
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/oa.jpg}
+	\end{minipage} &
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/dd}
+	\end{minipage} &
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/mg}
+	\end{minipage} &
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/ab}
+	\end{minipage} & 
+	\begin{minipage}{\namesize}
+		{\tiny
+		Лёша Остапив\\
+		Дима Демушкин\\
+		Маша Герасимова\\
+		Андрей Баранов}
+		\end{minipage} \\
+	
+	\hline
+	\begin{minipage}{\rozhasize}
+	\includegraphics[width=\textwidth]{../pics/portraits/ar}
+	\end{minipage} &
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/yuz}
+	\end{minipage} &
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/ak}
+	\end{minipage} &
+	\begin{minipage}{\rozhasize}
+		\includegraphics[width=\textwidth]{../pics/portraits/in}
+	\end{minipage} & 
+	\begin{minipage}{\namesize}
+		{\tiny
+			Саша Рогозин\\
+			Юля Зернина\\
+			Андрей Козлов\\
+			Ваня Никитин}
+	\end{minipage} \\
+
+\end{tabular}	
+\end{frame}
+	
+	\subsection{Идея похода}
+	\begin{frame}
+	\frametitle{Почему Терскей?}
+	\begin{itemize}
+		\item Посмотреть новое с учётом пожелания и опыта группы
+		\item \textit{Избежать} долгих \textit{забегов} по долинам
+		\item Погулять по разному
+		\item Посмотреть красивое
+	\end{itemize}
+	\end{frame}
+	
+	\subsection{Список препятствий}
+	\begin{frame}
+		\setbeamercovered{transparent}
+		\frametitle{Список препятствий}
+		\begin{enumerate}
+			\item<+-> пер. Саватор, 3860) (1А)
+			\item<+-> пер. Перемётный, 4026  (1А)
+			\item<+-> пер. Ашутор Западный, 3700 (1А)
+			\item<+-> пер. Иттиш, 3895 (1А)
+			\item<+-> в. Марс, 4450 (н/к)
+			\item<+-> пер. Кашкасу, 3890 (1А)
+		\end{enumerate}
+	\centering
+	\includegraphics<1>[height=0.5\textheight]{pics/passes/savator}%
+	\includegraphics<2>[height=0.5\textheight]{pics/passes/peremetnyy}%
+	\includegraphics<3>[height=0.5\textheight]{pics/passes/ashutor}%
+	\includegraphics<4>[height=0.5\textheight]{pics/passes/ittish}%
+	\includegraphics<5>[height=0.5\textheight]{pics/passes/mars}%
+	\includegraphics<5>[height=0.5\textheight]{pics/passes/kashkasuu}
+
+	\end{frame}
+	
+	\subsection{Трек}
+	
+	\begin{frame}
+		\frametitle{Трек}
+		\centering
+		\rotatebox{0}{
+			
+			\includegraphics[width=0.6\linewidth]{../map}}		
+	\end{frame}
+	
+	%------------------------------------------------
+	\section{Отчёт по дням}
+	
+	\input{03}
+	\input{04}
+	\input{05}
+	\input{06}	
+	\input{07}
+	\input{08}
+	\input{09}
+	\input{10}
+	\input{11}
+	\input{12}
+	\input{13}
+	\input{14_15}
+	\input{results}
+	
+	\section{Выводы}
+	
+	%------------------------------------------------
+	
+	\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+		\begin{center}
+			{\Huge The End}
+			
+			\bigskip\bigskip % Vertical whitespace
+			
+			{\LARGE Questions? Comments?}
+		\end{center}
+	\end{frame}
+	
+	%----------------------------------------------------------------------------------------
+	
+\end{document} 
