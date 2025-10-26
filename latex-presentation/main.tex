@@ -25,7 +25,7 @@
 ]{beamer}
 \usepackage[english, russian]{babel} % выбор языка
 
-\newcommand\rozhasize{0.20\textwidth}
+\newcommand\rozhasize{0.22\textwidth}
 \newcommand\namesize{0.18\textwidth}
 \newcommand\fourpicsize{0.49\textwidth}
 \usepackage{makecell}
@@ -42,6 +42,7 @@
 \usepackage{wasysym}
 \usepackage{textgreek}
 \usepackage{textcomp}
+\usepackage{adjustbox}
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
 %----------------------------------------------------------------------------------------
@@ -156,7 +157,7 @@
 %	PRESENTATION INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title[1 к.с. Тескей-Ала-Тоо 2025]{Рассказ о горном спортивном походе 1~к.с. по Тескей-Ала-Тоо (Кырзызстан)} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\title[1 к.с. Тескей-Ала-Тоо 2025]{Рассказ о горном спортивном походе 1~к.с. по Тескей-Ала-Тоо (Кыргызстан)} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
 
 %\subtitle{<<Делаем выводы. Или ноги>>} % Presentation subtitle, remove this command if a subtitle isn't required
 
@@ -202,49 +203,81 @@
 
 \begin{frame}
 	\frametitle{Состав группы}
-	\begin{tabular}{lllll}
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/oa.jpg}
-	\end{minipage} &
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/dd}
-	\end{minipage} &
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/mg}
-	\end{minipage} &
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/ab}
-	\end{minipage} & 
-	\begin{minipage}{\namesize}
-		{\tiny
-		Лёша Остапив\\
-		Дима Демушкин\\
-		Маша Герасимова\\
-		Андрей Баранов}
+	\setlength{\tabcolsep}{4pt}
+	\centering
+	\begin{tabular}{@{}cccc@{}}
+		% Первый ряд фотографий
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/oa.jpg}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/dd}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/mg}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/ab}
 		\end{minipage} \\
-	
-	\hline
-	\begin{minipage}{\rozhasize}
-	\includegraphics[width=\textwidth]{../pics/portraits/ar}
-	\end{minipage} &
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/yuz}
-	\end{minipage} &
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/ak}
-	\end{minipage} &
-	\begin{minipage}{\rozhasize}
-		\includegraphics[width=\textwidth]{../pics/portraits/in}
-	\end{minipage} & 
-	\begin{minipage}{\namesize}
-		{\tiny
-			Саша Рогозин\\
-			Юля Зернина\\
-			Андрей Козлов\\
-			Ваня Никитин}
-	\end{minipage} \\
-
-\end{tabular}	
+		
+		% Первый ряд подписей
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Лёша Остапив}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Дима Демушкин}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Маша Герасимова}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Андрей Баранов}
+		\end{minipage} \\
+		
+		% Второй ряд фотографий
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/ar}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/yuz}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/ak}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			\includegraphics[width=\linewidth]{pics/portraits/in}
+		\end{minipage} \\
+		
+		% Второй ряд подписей
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Саша Рогозин}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Юля Зернина}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Андрей Козлов}
+		\end{minipage} &
+		\begin{minipage}[c]{\rozhasize}
+			\centering
+			{\tiny Ваня Никитин}
+		\end{minipage} \\
+	\end{tabular}
 \end{frame}
 	
 	\subsection{Идея похода}
@@ -271,12 +304,12 @@
 			\item<+-> пер. Кашкасу, 3890 (1А)
 		\end{enumerate}
 	\centering
-	\includegraphics<1>[height=0.5\textheight]{pics/passes/savator}%
-	\includegraphics<2>[height=0.5\textheight]{pics/passes/peremetnyy}%
-	\includegraphics<3>[height=0.5\textheight]{pics/passes/ashutor}%
-	\includegraphics<4>[height=0.5\textheight]{pics/passes/ittish}%
-	\includegraphics<5>[height=0.5\textheight]{pics/passes/mars}%
-	\includegraphics<5>[height=0.5\textheight]{pics/passes/kashkasuu}
+	\includegraphics<1>[height=0.45\textheight]{pics/passes/savator}%
+	\includegraphics<2>[height=0.45\textheight]{pics/passes/peremetnyy}%
+	\includegraphics<3>[height=0.45\textheight]{pics/passes/ashutor}%
+	\includegraphics<4>[height=0.45\textheight]{pics/passes/ittish}%
+	\includegraphics<5>[height=0.45\textheight]{pics/passes/mars}%
+	\includegraphics<6>[height=0.45\textheight]{pics/passes/kashkasuu}
 
 	\end{frame}
 	
@@ -313,11 +346,13 @@
 	
 	\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
 		\begin{center}
-			{\Huge The End}
+			{\Huge Спасибо за внимание!}
 			
 			\bigskip\bigskip % Vertical whitespace
 			
-			{\LARGE Questions? Comments?}
+			{\LARGE Ходите в горы с нами!}
+			\includegraphics[width=0.5\textwidth]{pics/Flag_GS-2.pdf}
+			
 		\end{center}
 	\end{frame}
 	
