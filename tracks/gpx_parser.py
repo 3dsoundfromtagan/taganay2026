@@ -116,12 +116,12 @@ passes = {
         },
     
     'Ицыл': {
-        'point_num': 480,
+        'point_num': 520,
         'elevation': 1080,
         },
     
     'Крутой Ключ': {
-        'point_num': 620,
+        'point_num': 656,
         'elevation': 800,
         },
 }
@@ -146,32 +146,32 @@ for count, name in enumerate(passes.keys()):
     ax.annotate(name, (df.dist.iloc[passes[name]['point_num']],
                        passes[name]['elevation']))
 plt.tight_layout()
-fig.savefig('../pics/elevation_vs_distance.pdf')
+# fig.savefig('../pics/elevation_vs_distance.pdf')
 
 # %%
 passes = {
     'Перья': {
-        'point_num': 5,
+        'point_num': 0,
         'elevation': 1080,
         },
     
     'Круглица': {
-        'point_num': 95,
+        'point_num': 100,
         'elevation': 1220,
         },
     
     'Метеостанция': {
-        'point_num': 250,
+        'point_num': 255,
         'elevation': 1220,
         },
     
     'Ицыл': {
-        'point_num': 440,
+        'point_num': 445,
         'elevation': 1080,
         },
     
     'Крутой Ключ': {
-        'point_num': 580,
+        'point_num': 610,
         'elevation': 800,
         },
 }
@@ -197,3 +197,39 @@ for count, name in enumerate(passes.keys()):
 fig.tight_layout()
 # %%
 fig.savefig('../pics/elevation_vs_time.pdf')
+
+# %% perepad calc
+
+# Сглаживаем данные для уменьшения влияния шума GPS
+window_sizes = np.arange(1, 100, dtype=int)  # количество точек для скользящего среднего
+ascs = []
+for window_size in window_sizes:
+    df['elevation_smooth'] = df['elevation'].rolling(window=window_size, center=True).mean()
+    
+    # Заполняем NaN значения
+    df['elevation_smooth'] = df['elevation_smooth'].interpolate()
+    
+    # Пересчитываем перепады по сглаженным данным
+    df['elevation_smooth_diff'] = df.elevation_smooth.diff()
+    
+    # Суммарный подъем по сглаженным данным
+    ascents_smooth = df[df['elevation_smooth_diff'] > 0]['elevation_smooth_diff']
+    total_ascent_smooth = ascents_smooth.sum()
+    ascs.append(total_ascent_smooth)
+    print(f"Суммарный подъем (сглаженные данные): {total_ascent_smooth:.0f} м")
+    
+# зашло window_size = 4
+window_size = 4
+df['elevation_smooth'] = df['elevation'].rolling(window=window_size, center=True).mean()
+
+# Заполняем NaN значения
+df['elevation_smooth'] = df['elevation_smooth'].interpolate()
+
+# Пересчитываем перепады по сглаженным данным
+df['elevation_smooth_diff'] = df.elevation_smooth.diff()
+
+# Суммарный подъем по сглаженным данным
+ascents_smooth = df[df['elevation_smooth_diff'] > 0]['elevation_smooth_diff']
+total_ascent_smooth = ascents_smooth.sum()
+
+print(f"Суммарный подъем (сглаженные данные): {total_ascent_smooth:.0f} м")
