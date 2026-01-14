@@ -31,7 +31,8 @@ from geopy.distance import great_circle
 gpx_file = open('merged.gpx', 'r')
 
 gpx = gpxpy.parse(gpx_file)
-gpx.reduce_points(8000)
+#опытным путем установлено что трек уже не пушистый но еще не режется при удалении 6 точек из 7
+gpx.reduce_points(1300)
 # times = []
 # elevations = []
 # for track in gpx.tracks:
@@ -99,34 +100,29 @@ for track in gpx.tracks:
             
 # %%
 passes = {
-    'Саватор': {
-        'point_num': 200,
-        'elevation': 4_300,
+    'Перья': {
+        'point_num': 50,
+        'elevation': 1080,
         },
     
-    'Перемётный': {
-        'point_num': 800,
-        'elevation': 4_050,
+    'Круглица': {
+        'point_num': 130,
+        'elevation': 1220,
         },
     
-    'Ашутор Зап.': {
-        'point_num': 1_400,
-        'elevation': 3_800,
+    'Метеостанция': {
+        'point_num': 330,
+        'elevation': 1220,
         },
     
-    'Иттиш': {
-        'point_num': 2_400,
-        'elevation': 3_980,
+    'Ицыл': {
+        'point_num': 480,
+        'elevation': 1080,
         },
     
-    'Марс': {
-        'point_num': 3_300,
-        'elevation': 4_450,
-        },
-    
-    'Кашкасу': {
-        'point_num': 3_700,
-        'elevation': 3_950,
+    'Крутой Ключ': {
+        'point_num': 620,
+        'elevation': 800,
         },
 }
 
@@ -139,48 +135,44 @@ passes = {
 fig, ax = plt.subplots(figsize=(15, 6))
 my_params = {'font.size':24}
 plt.rcParams.update(my_params)
-ax.plot(df.dist,df.elevation,'b',label = "Elevation",
+ax.plot(1.2*df.dist,df.elevation,'b',label = "Elevation",
         linewidth=5)
 ax.set_xlabel("Расстояние, км")
 ax.set_ylabel("Высота, м")
 # ax.grid()
-ax.set_ylim(1900, 4700)
-ax.set_xlim(0, 125)
+ax.set_ylim(0, 1500)
+ax.set_xlim(0, 100)
 for count, name in enumerate(passes.keys()):
     ax.annotate(name, (df.dist.iloc[passes[name]['point_num']],
                        passes[name]['elevation']))
 plt.tight_layout()
+fig.savefig('../pics/elevation_vs_distance.pdf')
 
 # %%
 passes = {
-    'Саватор': {
-        'point_num': 620,
-        'elevation': 3950,
+    'Перья': {
+        'point_num': 5,
+        'elevation': 1080,
         },
     
-    'Перемётный': {
-        'point_num': 1000,
-        'elevation': 4100,
+    'Круглица': {
+        'point_num': 95,
+        'elevation': 1220,
         },
     
-    'Ашутор Зап.': {
-        'point_num': 1_400,
-        'elevation': 3_800,
+    'Метеостанция': {
+        'point_num': 250,
+        'elevation': 1220,
         },
     
-    'Иттиш': {
-        'point_num': 2500,
-        'elevation': 4050,
+    'Ицыл': {
+        'point_num': 440,
+        'elevation': 1080,
         },
     
-    'Марс': {
-        'point_num': 3358,
-        'elevation': 4_450,
-        },
-    
-    'Кашкасу': {
-        'point_num': 3750,
-        'elevation': 3_950,
+    'Крутой Ключ': {
+        'point_num': 580,
+        'elevation': 800,
         },
 }
 # %% time plot
@@ -197,11 +189,11 @@ date_form = DateFormatter("%d")
 ax.xaxis.set_major_locator(MaxNLocator(500, integer=True))
 ax.xaxis.set_major_formatter(date_form)
 # ax.grid()
-ax.set_ylim(1900, 4700)
+ax.set_ylim(0, 1500)
 # ax.set_xlim(0, 120)
 for count, name in enumerate(passes.keys()):
     ax.annotate(name, (times[passes[name]['point_num']],
                        passes[name]['elevation']))
 fig.tight_layout()
 # %%
-fig.savefig('../elevation_vs_time.pdf')
+fig.savefig('../pics/elevation_vs_time.pdf')

@@ -52,7 +52,7 @@ def merge_gpx_files(input_folder, output_file):
     
     return merged_gpx
 
-def plot_elevation_data(gpx):
+def plot_elevation_data(gpx, num = 1):
     if not gpx.tracks or not gpx.tracks[0].segments or not gpx.tracks[0].segments[0].points:
         print("Нет данных для построения графиков")
         return
@@ -65,7 +65,7 @@ def plot_elevation_data(gpx):
     distances = [0]
     prev_point = points[0]
     
-    for i, point in enumerate(points[1:], 1):
+    for i, point in enumerate(points[1::num], 1):
         elevations.append(point.elevation)
         times.append(point.time)
         
@@ -92,26 +92,34 @@ def plot_elevation_data(gpx):
     plt.title('Зависимость высоты от расстояния')
     plt.grid(True)
     
-    # График высоты от времени
-    plt.subplot(1, 2, 2)
-    plt.plot(times, elevations, 'r-')
-    plt.xlabel('Дата и время')
-    plt.ylabel('Высота (м)')
-    plt.title('Зависимость высоты от времени')
-    plt.grid(True)
-    plt.xticks(rotation=45)
+    # # График высоты от времени
+    # plt.subplot(1, 2, 2)
+    # plt.plot(times, elevations, 'r-')
+    # plt.xlabel('Дата и время')
+    # plt.ylabel('Высота (м)')
+    # plt.title('Зависимость высоты от времени')
+    # plt.grid(True)
+    # plt.xticks(rotation=45)
     
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
+    return distances_km[-1]
 
 if __name__ == "__main__":
+    dsts = []
     # input_folder = input("Введите путь к папке с GPX-файлами: ").strip()
     # output_file = input("Введите имя выходного GPX-файла (например: merged_tracks.gpx): ").strip()
-    
-    
+    input_folder = r'D:\Походы\taganay2026\taganay2026\tracks'
+    output_file = 'merged.gpx'
     
     if not os.path.isdir(input_folder):
         print("Указанная папка не существует!")
     else:
         merged_gpx = merge_gpx_files(input_folder, output_file)
-        plot_elevation_data(merged_gpx)
+        # nums = np.arange(1, 500, dtype = int)
+        nums = [7]
+        for num in nums:
+            dst = plot_elevation_data(merged_gpx, num)
+            dsts.append(dst)
+            
+# %% plot
