@@ -55,6 +55,6 @@ def merge_gpx_files_simple(input_folder, output_file):
     return merged_gpx
 
 if __name__ == "__main__":
-    input_folder = r'D:\Походы\taganay2026\taganay2026\tracks'
+    input_folder = r'D:\adventures\taganay2026\taganay2026\tracks'
     output_file = 'merged.gpx'
     merged_gpx = merge_gpx_files_simple(input_folder, output_file)
