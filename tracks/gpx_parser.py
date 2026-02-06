@@ -233,3 +233,4 @@ ascents_smooth = df[df['elevation_smooth_diff'] > 0]['elevation_smooth_diff']
 total_ascent_smooth = ascents_smooth.sum()
 
 print(f"Суммарный подъем (сглаженные данные): {total_ascent_smooth:.0f} м")
+
